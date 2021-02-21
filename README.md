@@ -38,6 +38,7 @@ docker run -e OIDC_REDIRECT_URL=http://localhost/login/redirect_uri \
            -e OIDC_CLIENT_ID=<Your ClientID> \
            -e OIDC_CRYPTO_PASSPHRASE=<Your ClientSecret> \
            -v /var/www/html:<web root directory> \
+           -p 80:80 \
            thoughtgang/apache-oid:latest \
 ```
 
@@ -46,6 +47,7 @@ If you need a more fine grained control over hte configuration settings you may 
 ```shell
 docker run -v /etc/apache2/mods-available/auth_openidc.conf:<path to your auth_openidc.conf> \
            -v /var/www/html:<web root directory> \
+           -p 80:80 \
            thoughtgang/apache-oid:latest \
 ```
 
