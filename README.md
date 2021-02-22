@@ -89,6 +89,7 @@ If OIDCProviderMetadataURL is not set, the entries below it will have to be conf
 static OP configuration or OIDCMetadataDir will have to be set for configuration of multiple OPs.
 * `OIDC_CLIENT_ID` -  Client identifier used in calls to the OpenID Connect Provider.
 * `OIDC_CLIENT_SECRET` - Client secret used in calls to the OpenID Connect Provider.
+* `OIDC_SCOPE` - A space separated list of OIDC to request (e.g. ENV OIDC_SCOPE="openid profile email" would get you name and email associated with the login). Defaults to *openid*
 
 #### Volumes
 
