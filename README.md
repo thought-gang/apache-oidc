@@ -66,7 +66,9 @@ ENV OIDC_CLIENT_SECRET=<Your ClientSecret>
 ```
 
 
-#### Environment Variables
+### Environment Variables
+
+#### Basic configuration
 
 * `OIDC_REDIRECT_URL` - The redirect_uri for this OpenID Connect client; this is a vanity URL
 that must ONLY point to a path on your server protected by this module
@@ -81,15 +83,28 @@ support multiple vhosts that belong to the same security domain in a dynamic way
 If the value begins with exec: the resulting command will be executed and the
 first line returned to standard output by the program will be used as the password.
 The command may be absolute or relative to the web server root.
+
 * `OIDC_PROVIDER_METADATA_URL` - URL where OpenID Connect Provider metadata can be found (e.g. https://accounts.google.com/.well-known/openid-configuration)
 The obtained metadata will be cached and refreshed every 24 hours.
 If set, individual entries below will not have to be configured but can be used to add
 extra entries/endpoints to settings obtained from the metadata.
 If OIDCProviderMetadataURL is not set, the entries below it will have to be configured for a single
 static OP configuration or OIDCMetadataDir will have to be set for configuration of multiple OPs.
+
 * `OIDC_CLIENT_ID` -  Client identifier used in calls to the OpenID Connect Provider.
+
 * `OIDC_CLIENT_SECRET` - Client secret used in calls to the OpenID Connect Provider.
+
+#### Advanged configuration
+
 * `OIDC_SCOPE` - A space separated list of OIDC to request (e.g. ENV OIDC_SCOPE="openid profile email" would get you name and email associated with the login). Defaults to *openid*
+
+* `OIDC_SESSION_TYPE` -  The OIDC session type (aka OIDCSessionType config value). 
+> :warning: The default value is changed from `server-cache` to  `client-cookie` by default to facilitate the use in a cluster environment.
+
+* `OIDC_SESSION_INACTIVITY_TIMEOUT` The value for the config parameter OIDCSessionInactivityTimeout. The default value is 300s aka 5 min.)
+
+* `OIDC_SESSION_MAX_DURATION` The value for the config parameter OIDCSessionMaxDuration. The default value is 28800s aka 8 h.
 
 #### Volumes
 
