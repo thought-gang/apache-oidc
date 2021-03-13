@@ -106,11 +106,11 @@ static OP configuration or OIDCMetadataDir will have to be set for configuration
 
 * `OIDC_SESSION_MAX_DURATION` The value for the config parameter OIDCSessionMaxDuration. The default value is 28800s aka 8 h.
 
-#### Volumes
+### Volumes
 
 * `/var/www/html` - Root directory for the web server
 
-#### Useful File Locations
+### Useful File Locations
 
 * `/etc/apache2/mods-available/mode_openidc.conf` - Confiuration file for the OIDC module
 
